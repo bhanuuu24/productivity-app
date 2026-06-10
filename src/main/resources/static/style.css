@@ -1,0 +1,274 @@
+
+
+/* ---------- SPACING SYSTEM ---------- */
+:root {
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+}
+
+/* ---------- GLOBAL ---------- */
+* {
+    box-sizing: border-box;
+    transition: background-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 60px;
+}
+
+/* ---------- CONTAINER ---------- */
+.container {
+    background: #ffffff;
+    width: 650px;
+    padding: var(--space-lg);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+}
+
+/* ---------- FORM ---------- */
+.task-form {
+    display: grid;
+    grid-template-columns: 1.3fr 1.6fr 1fr auto 0.9fr auto;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+    align-items: center;
+}
+
+
+.task-form input,
+.task-form select {
+    height: 40px;
+    padding: 0 var(--space-sm);
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    width: 100%;
+}
+
+.task-form select {
+    cursor: pointer;
+}
+
+/* Input focus feedback */
+.task-form input:focus,
+.task-form select:focus {
+    outline: none;
+    border-color: #5b6cff;
+    box-shadow: 0 0 0 2px rgba(91,108,255,0.2);
+}
+
+/* ---------- PRIMARY BUTTON ---------- */
+.task-form button {
+    height: 40px;
+    padding: 0 var(--space-md);
+    background: #5b6cff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.task-form button:disabled {
+    background: #bfc5ff;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+
+.task-form button:hover {
+    background-color: #5a67d8;
+    transform: translateY(-1px);
+}
+
+.task-form button:active {
+    transform: translateY(0);
+}
+
+/* ---------- TASK LIST ---------- */
+#taskList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#taskList li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    background: #f7f7f7;
+    padding: var(--space-md);
+    border-radius: 8px;
+    margin-bottom: var(--space-sm);
+    cursor: default;
+}
+
+/* Task card hover feedback */
+#taskList li:hover {
+    background: #eeeeee;
+}
+
+/* Checkbox feedback */
+#taskList li input[type="checkbox"] {
+    margin-top: 4px;
+    cursor: pointer;
+}
+
+#taskList li input[type="checkbox"]:active {
+    transform: scale(1.1);
+}
+
+/* Task text */
+#taskList li span {
+    flex: 1;
+    font-size: 14px;
+    word-break: break-word;
+}
+
+#taskList small {
+    display: block;
+    margin-top: 4px;
+    color: #555;
+    word-break: break-word;
+}
+.task-type {
+    display: block;
+    font-size: 12px;
+    color: #888;
+    margin-top: 4px;
+}
+
+#taskList button,
+#taskList input[type="checkbox"] {
+    cursor: pointer;
+}
+
+
+/* ---------- COMPLETED TASK ---------- */
+.completed-task {
+    text-decoration: line-through;
+    color: #555;
+    opacity: 0.7;
+}
+
+/* ---------- BUTTONS INSIDE TASK LIST ---------- */
+#taskList button {
+    padding: 6px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+}
+
+#taskList button:hover {
+    transform: translateY(-1px);
+}
+
+#taskList button:active {
+    transform: translateY(0);
+}
+/* ---------- PROGRESS BAR ---------- */
+.progress-bar {
+    margin-top: 6px;
+    width: 200px;
+    height: 8px;
+    background: #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: #4caf50;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+/* ---------- ACTION BUTTONS ---------- */
+.edit-btn,
+.delete-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: 6px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* ✏️ EDIT */
+.edit-btn {
+    background-color: #f59e0b;
+}
+
+.edit-btn:hover {
+    background-color: #d97706;
+}
+
+/* 🗑️ DELETE */
+.delete-btn {
+    background-color: #ef4444;
+}
+
+.delete-btn:hover {
+    background-color: #dc2626;
+}
+.delete-btn:focus {
+    box-shadow: 0 0 0 2px rgba(239,68,68,0.3);
+}
+/* Progress input visibility control */
+.progress-cell {
+    display: none;
+}
+
+.progress-cell.show {
+    display: block;
+}
+/* ---------- PROGRESS BAR ---------- */
+
+.daily-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    white-space: nowrap;
+}
+.streak {
+    display: inline-block;
+    margin-top: 4px;
+    font-size: 13px;
+    color: #ff6b35;
+    font-weight: 500;
+    cursor: pointer;
+}
+#taskList li:hover .streak {
+    color: #ff4500;
+}
+/* ❌ DO NOT strike streak even if task is completed */
+.completed-task .streak {
+    text-decoration: none !important;
+    opacity: 1;
+}
+
+
+
+
+
+
+
+

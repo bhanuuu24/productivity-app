@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+<body>
+
+<div class="container">
+    <h1>My Tasks</h1>
+-
+    <div class="task-form">
+        <input type="text" id="title" placeholder="Task title">
+        <input type="text" id="description" placeholder="Task description">
+
+        <select id="taskType">
+            <option value="">Select Task Type</option>
+            <option value="PROGRESS">Progress Task</option>
+            <option value="BINARY">Simple Task</option>
+        </select>
+
+        <!-- ✅ Daily Task Toggle (RESTORED) -->
+        <div class="daily-toggle">
+            <input type="checkbox" id="dailyTask">
+            <label for="dailyTask">Daily Task</label>
+        </div>
+
+        <div id="progressWrapper" class="progress-cell">
+            <input
+                    type="number"
+                    id="progress"
+                    placeholder="Progress (%)"
+                    min="0"
+                    max="100"
+                    step="1"
+            >
+        </div>
+
+        <button onclick="addTask()">Add Task</button>
+    </div>
+
+    <ul id="taskList"></ul>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
